@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+
+root = File.expand_path('../..', __FILE__)
+require File.join(root, %w[lib epub-ng])
+
+# Put your code here
+
+epub = Neurogami::EpubNg.new
+
+if ARGV.empty?
+  epub.help
+  exit
+end
+
+if ARGV.first.to_s.strip =~ /(-h|--help)/
+  epub.help
+  exit
+end
+
+warn "Have ARGV = #{ARGV.inspect}"
+epub.process *ARGV
