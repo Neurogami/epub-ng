@@ -87,7 +87,7 @@ module Neurogami
       file = f.split('/').last
       file = f.split('.').first
       file.gsub! '_', ' '
-      file.capitalize  
+      file.titlecase #   .capitalize  
     end
 
     def make_spine

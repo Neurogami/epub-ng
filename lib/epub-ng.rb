@@ -52,11 +52,13 @@ class EpubNg
         ::File.join(::File.dirname(fname), dir, '**', '*.rb'))
 
         STDOUT.puts "search_me = #{search_me.inspect}"
-    Dir.glob(search_me).sort.each {|rb| require rb}
+    Dir.glob(search_me).sort.each {|rb| 
+          STDOUT.puts "require '#{rb}'"
+          require rb}
   end
 
-end  # module EpubNg
+  end  # module EpubNg
 end
 
-Neurogami::EpubNg.require_all_libs_relative_to(__FILE__)
+Neurogami::EpubNg.require_all_libs_relative_to __FILE__
 
