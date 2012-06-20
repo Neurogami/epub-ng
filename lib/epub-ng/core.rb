@@ -43,6 +43,7 @@ module Neurogami
 
     def media_type file
       # Why not have a hash? 
+      # Also, see: http://www.iana.org/assignments/media-types/index.html
       ext = file.split('.').last
       case ext
       when 'html', 'xhtml', 'xml'
@@ -57,6 +58,8 @@ module Neurogami
         'application/x-dtbncx+xml'
       when 'xpgt'
         'application/vnd.adobe-page-template+xml'
+      when 'otf'
+        'application/x-font-opentype'
       else
         raise "Unknown file type in media_type for file '#{file}'"
       end
