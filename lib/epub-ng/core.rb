@@ -250,8 +250,10 @@ module Neurogami
         end
 
         def check epub_file_name  
-          cmd = 'java -jar /home/james/data/vendor/epubcheck-3.0b5/epubcheck-3.0b5.jar'
-          results =  `#{cmd} #{epub_file_name  }`
+          here = File.expand_path(File.dirname __FILE__ )
+
+          cmd = "java -jar #{here}/epubcheck-3.0b5.jar"
+          results =  `#{cmd} #{epub_file_name}`
           puts results
         end
 
